@@ -1,0 +1,103 @@
+/* Estilos generales del cuerpo de la página */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #d2c8b6; /* Color de fondo similar al de la imagen */
+    color: #f5f5f5; /* Color de texto principal (blanco hueso) */
+    overflow: hidden; /* Evita barras de scroll */
+}
+
+/* Contenedor principal para centrar el contenido */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+    /* Efecto para la imagen de fondo (opcional) */
+    /* background-image: url('tu-imagen-de-fondo.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Estilo para la fecha */
+.date {
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+/* Contenedor para el título principal y el nombre */
+.title-container {
+    position: relative; /* Necesario para posicionar el nombre 'Ana' */
+    margin-bottom: 30px;
+}
+
+/* Estilo para el título "Bienvenidos..." */
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5em;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    z-index: 1; /* Asegura que esté por encima del nombre */
+}
+
+/* Estilo para el nombre 'Ana' que se superpone */
+.name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 9em; /* Tamaño grande para que se vea detrás */
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.15); /* Color muy sutil */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado perfecto */
+    z-index: -1; /* Lo coloca detrás del texto del h1 */
+}
+
+/* Estilo para el texto de la música */
+.music-text {
+    font-size: 1em;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+/* Contenedor para los botones */
+.buttons-container {
+    display: flex;
+    gap: 20px; /* Espacio entre los botones */
+}
+
+/* Estilo general de los botones */
+.button {
+    text-decoration: none;
+    color: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    padding: 12px 28px;
+    border-radius: 50px; /* Para que sean ovalados */
+    font-weight: 300;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Efecto al pasar el mouse sobre los botones */
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Media query para hacer el diseño responsivo en pantallas pequeñas */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    .name {
+        font-size: 6em;
+    }
+    .buttons-container {
+        flex-direction: column; /* Apila los botones verticalmente */
+    }
+}

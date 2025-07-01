@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Invitación Principal</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <!-- Capa de superposición -->
+    <div class="overlay"></div>
+
+    <!-- Contenido principal -->
+    <div class="invitation-content">
+        <img src="adorno.png" alt="Adorno" class="central-ornament">
+
+        <div class="date-container">
+            <div class="line"></div>
+            <div class="date">15.06.2025</div>
+            <div class="line"></div>
+        </div>
+
+        <div class="name">Ana</div>
+        <div class="subtitle">¡Estás cordialmente invitado!</div>
+        <div class="divider-line"></div>
+
+        <div class="quote-container">
+            <div class="quote-mark open">“</div>
+            <div class="quote-text">Una noche mágica está por comenzar, gracias por ser parte de este gran momento.</div>
+            <div class="quote-mark close">”</div>
+        </div>
+    </div>
+
+    <!-- Botón de música opcional -->
+    <a href="#" class="music-button" id="toggleMusic">♪</a>
+
+    <!-- Audio -->
+    <audio id="musicaFondo" loop>
+        <source src="LoveStory.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <!-- Decoraciones -->
+    <img src="esquina1.png" class="deco-top-left" alt="Decoración">
+    <img src="esquina2.png" class="deco-bottom-right" alt="Decoración">
+
+    <!-- Script para controlar la música -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const quiereMusica = localStorage.getItem('reproducirMusica');
+        const audio = document.getElementById('musicaFondo');
+        const toggleBtn = document.getElementById('toggleMusic');
+
+        // Si el usuario quería música
+        if (quiereMusica === '1') {
+            const iniciarMusica = () => {
+                audio.play().catch(err => {
+                    console.warn("Error al reproducir música:", err);
+                });
+                localStorage.removeItem('reproducirMusica');
+                document.removeEventListener('click', iniciarMusica);
+            };
+            // Esperar el primer clic para evitar bloqueo de autoplay
+            document.addEventListener('click', iniciarMusica);
+        }
+
+        // Botón para pausar/reanudar
+        toggleBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        });
+    });
+    </script>
+</body>
+</html>
