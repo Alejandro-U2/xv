@@ -1,0 +1,589 @@
+/* Estilos Globales y Reset */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-color: #FFF1F0; /* Fondo general rosado claro */
+    color: #3B3B3B; /* Texto gris oscuro elegante */
+}
+
+/* --- SECCIÓN DE BIENVENIDA --- */
+.seccion-bienvenida {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    background-color: #FFF1F0; /* Fondo rosado claro sin imagen */
+    color: #3B3B3B; /* Texto gris oscuro */
+}
+
+/* El overlay y las decoraciones de esquina se han quitado del HTML, por lo que sus estilos no son necesarios a menos que se reincorporen */
+/* .overlay { display: none; } */
+/* .deco-top-left, .deco-bottom-right { ... } */
+
+
+.invitation-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.music-button {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 3;
+    width: 45px;
+    height: 45px;
+    background-color: #D4AF37; /* Dorado para botón de música */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #FFF1F0; /* Texto claro sobre dorado */
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+    box-shadow: 0 0 8px #D4AF37aa;
+}
+.music-button:hover {
+    background-color: #B99428;
+    box-shadow: 0 0 12px #B99428cc;
+}
+
+.central-ornament {
+    width: 200px;
+    margin-bottom: 1rem; /* Valor corregido */
+    opacity: 0.8;
+    filter: hue-rotate(-15deg) saturate(1.2) brightness(0.9);
+}
+
+.date-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+.line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #E0A2A2; /* Rose gold medio para líneas */
+}
+
+.date {
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+
+.name {
+    font-family: 'Playfair Display', serif;
+    font-size: 5em;
+    font-weight: 700;
+    margin: 0.2em 0;
+    line-height: 1;
+    color: #3B3B3B;
+}
+
+.subtitle {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin: 0;
+    letter-spacing: 1px;
+    color: #3B3B3B;
+}
+
+.divider-line {
+    width: 150px;
+    height: 1px;
+    background-color: #E0A2A2;
+    margin: 1.5rem auto;
+}
+
+.quote-container {
+    position: relative;
+    max-width: 500px;
+    margin-top: 1rem;
+    margin: 1rem auto;
+}
+
+.quote-text {
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.6;
+    padding: 0 2rem;
+    color: #3B3B3B;
+}
+
+.quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 5em;
+    position: absolute;
+    opacity: 0.3;
+    color: #E0A2A2;
+}
+.quote-mark.open { top: -0.5em; left: -0.2em; }
+.quote-mark.close { bottom: -0.8em; right: -0.2em; }
+
+
+/* --- SECCIÓN DE CUENTA REGRESIVA --- */
+.seccion-countdown {
+    background-color: #FFD7D7; /* Un color de fondo para la sección de countdown */
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px; /* Altura mínima para el countdown */
+}
+
+.countdown-container {
+    background-color: #FFF1F0; /* Fondo del círculo blanco-rosado */
+    border-radius: 50%; /* Lo hace circular */
+    width: 300px; /* Ancho del círculo */
+    height: 300px; /* Alto del círculo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(224, 162, 162, 0.4); /* Sombra suave rose gold */
+    position: relative; /* Para el adorno del círculo */
+}
+
+/* El adorno de círculo alrededor del contador */
+.countdown-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 40px); /* Tamaño del círculo externo */
+    height: calc(100% + 40px);
+    border: 2px solid #E0A2A2; /* Color de la línea rose gold */
+    border-radius: 50%;
+    z-index: -1; /* Detrás del contenido */
+    opacity: 0.7;
+}
+
+.countdown-header {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-title-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: #3B3B3B;
+    margin-bottom: 5px;
+}
+
+.countdown-ornament {
+    width: 50px;
+    height: 1px;
+    background-color: #E0A2A2; /* Línea decorativa debajo de "Falta" */
+}
+
+.countdown-timer {
+    display: flex;
+    align-items: flex-end; /* Alinea los números abajo */
+    gap: 15px; /* Espacio entre bloques de tiempo */
+    font-family: 'Montserrat', sans-serif; /* Usamos Montserrat para los números */
+}
+
+.time-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #3B3B3B;
+}
+
+.time-block .number {
+    font-size: 2.5em; /* Tamaño de los números */
+    font-weight: 700;
+    line-height: 1; /* Elimina espacio extra arriba/abajo */
+}
+
+.time-block .label {
+    font-size: 0.8em; /* Tamaño de las etiquetas (días, hs, etc.) */
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+.time-separator {
+    width: 2px;
+    height: 25px; /* Altura del separador */
+    background-color: #E0A2A2; /* Color del separador (línea vertical) */
+    align-self: center; /* Centra el separador verticalmente */
+}
+
+.countdown-footer {
+    margin-top: 10px;
+}
+
+.heart-icon {
+    width: 50px; /* Tamaño del corazón */
+    filter: hue-rotate(-15deg) saturate(1.2) brightness(0.9); /* Filtro para que el corazón combine */
+}
+
+
+/* --- SECCIÓN DE DETALLES DEL EVENTO (contenido integrado) --- */
+.seccion-detalles {
+    background-color: #FFD7D7; /* Rosado tenue para seccion secundaria */
+    color: #3B3B3B;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.container-detalles {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.evento {
+    background-color: #FFF1F0; /* Fondo muy claro dentro de detalles */
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(224, 162, 162, 0.3);
+    width: 400px;
+    flex-shrink: 0;
+    color: #3B3B3B;
+}
+
+.icono {
+    background-color: #E0A2A2; /* Rose gold medio */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+}
+
+.icono-iglesia {
+    max-width: 80%;
+    max-height: 80%;
+    filter: brightness(0) invert(1);
+}
+
+.icono-fiesta {
+    max-width: 60%;
+    max-height: 60%;
+    filter: brightness(0) invert(1);
+}
+
+.seccion-detalles h2 {
+    font-family: 'Playfair Display', serif;
+    color: #3B3B3B;
+    margin-bottom: 20px;
+    font-size: 2.2em;
+}
+
+.detalle {
+    margin-bottom: 25px;
+}
+
+.detalle h3 {
+    color: #3B3B3B;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+}
+
+.detalle p {
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #3B3B3B;
+}
+
+.boton-accion, .boton-asistencia {
+    background-color: #D4AF37; /* Oro brillante clásico */
+    color: #FFF1F0;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    box-shadow: 0 0 6px #D4AF37aa;
+}
+
+.boton-accion:hover, .boton-asistencia:hover {
+    background-color: #B99428;
+    box-shadow: 0 0 10px #B99428cc;
+}
+
+.botones-contenedor {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.boton-ubicacion {
+    background-color: #D4AF37; /* Color base dorado, pero si se usa .boton-waze lo sobrescribirá */
+    color: #FFF1F0;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    box-shadow: 0 0 6px #D4AF37aa;
+}
+
+.boton-ubicacion:hover {
+    background-color: #B99428;
+    box-shadow: 0 0 10px #B99428cc;
+}
+
+.boton-waze {
+    background-color: #2D89EF; /* Azul de Waze */
+    color: white; /* Texto blanco */
+    box-shadow: 0 0 6px #2D89EFaa;
+}
+
+.boton-waze:hover {
+    background-color: #1d6fcb;
+    box-shadow: 0 0 10px #1d6fcbcc;
+}
+
+/* --- SECCIÓN DE GALERÍA DE FOTOS --- */
+.seccion-galeria {
+    background-color: #FFD7D7; /* Rosado tenue para la sección de la galería */
+    padding: 60px 20px;
+    text-align: center;
+    position: relative; /* Necesario para el fondo de hojas */
+    overflow: hidden; /* Para asegurar que las hojas no se salgan */
+}
+
+/* Fondo de hojas sutil */
+.seccion-galeria::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('hojas-pattern.png'); /* Asegúrate de tener esta imagen */
+    background-repeat: repeat;
+    background-size: 150px; /* Ajusta el tamaño del patrón según sea necesario */
+    opacity: 0.3; /* Hazlo sutil */
+    z-index: 0; /* Detrás del contenido */
+    filter: hue-rotate(-30deg) saturate(0.8) brightness(1.2); /* Ajuste de filtro para un tono más rosado/dorado */
+}
+
+.galeria-header {
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1; /* Asegura que el header esté sobre el patrón de hojas */
+}
+
+.galeria-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    color: #3B3B3B; /* Gris oscuro para el título */
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.galeria-subtitle {
+    font-size: 1.1em;
+    color: #3B3B3B;
+    margin-bottom: 20px;
+}
+
+.galeria-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.camara-icon {
+    width: 40px; /* Tamaño del icono de cámara */
+    filter: invert(40%) sepia(50%) saturate(600%) hue-rotate(-20deg) brightness(90%) contrast(90%); /* Para darle un tono dorado/rose gold */
+}
+
+.slider-container {
+    max-width: 960px; /* AUMENTADO: Ancho máximo del carrusel, de 900px a 1100px */
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden; /* Oculta el overflow para el efecto de slider */
+    border-radius: 15px; /* Bordes redondeados para el contenedor del slider */
+    box-shadow: 0 8px 25px rgba(224, 162, 162, 0.4); /* Sombra suave rose gold */
+    background-color: #FFF1F0; /* Fondo del slider para fotos que no cubran todo */
+    padding: 15px; /* Pequeño padding interno para las fotos */
+    box-sizing: border-box; /* Incluir padding en el ancho/alto */
+    z-index: 1; /* Asegura que el slider esté sobre el patrón de hojas */
+}
+
+.slider {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out; /* Transición suave para el cambio de slide */
+    position: relative; /* Necesario para posicionar las slides */
+    height: 800px; /* AUMENTADO: Altura fija para el slider, de 400px a 800px */
+}
+
+.slide {
+    min-width: 100%; /* Cada slide ocupa el 100% del ancho del slider-container */
+    box-sizing: border-box;
+    display: none; /* Oculto por defecto, JS lo muestra */
+    display: flex; /* Usar flex para centrar la imagen dentro del slide */
+    justify-content: center;
+    align-items: center;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen para cubrir el área del slide */
+    border-radius: 10px; /* Bordes redondeados para cada imagen */
+}
+
+.slider-dots {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    z-index: 1; /* Asegura que los dots estén sobre el patrón de hojas */
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: #E0A2A2; /* Rose gold medio para dots inactivos */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dot.active {
+    background-color: #D4AF37; /* Dorado para el dot activo */
+    transform: scale(1.2);
+}
+.dot:hover {
+    background-color: #B99428; /* Dorado más oscuro al pasar el mouse */
+}
+
+
+/* --- MEDIA QUERIES (Responsivo) --- */
+
+@media (max-width: 900px) {
+    /* Bienvenida */
+    .name { font-size: 4em; }
+    .subtitle { font-size: 1.3em; }
+    .quote-text { font-size: 1em; }
+
+    /* Cuenta Regresiva */
+    .seccion-countdown { padding: 30px 15px; }
+    .countdown-container {
+        width: 250px;
+        height: 250px;
+    }
+    .countdown-container::before {
+        width: calc(100% + 30px);
+        height: calc(100% + 30px);
+    }
+    .countdown-timer { gap: 10px; }
+    .time-block .number { font-size: 2em; }
+    .time-block .label { font-size: 0.7em; }
+    .time-separator { height: 20px; }
+    .countdown-title-text { font-size: 1.5em; }
+    .heart-icon { width: 25px; }
+
+    /* Detalles */
+    .container-detalles {
+        flex-direction: column;
+        align-items: center;
+    }
+    .evento {
+        width: 90%;
+        max-width: 500px;
+        margin-bottom: 30px;
+    }
+
+    /* Galería */
+    .seccion-galeria { padding: 40px 15px; }
+    .galeria-title { font-size: 2.2em; }
+    .slider-container { max-width: 750px; height: 500px; } /* AUMENTADO: Ajuste para tablets/desktops pequeños */
+    .camara-icon { width: 35px; }
+    .music-note-icon { font-size: 1.6em; }
+}
+
+@media (max-width: 600px) {
+    /* Bienvenida */
+    .name { font-size: 3em; }
+    .subtitle { font-size: 1.1em; }
+    .quote-text { padding: 0 1rem; }
+    .quote-mark { font-size: 4em; }
+    .central-ornament { width: 150px; }
+    .music-button { top: 15px; right: 15px; width: 40px; height: 40px; font-size: 1rem;}
+
+    /* Cuenta Regresiva */
+    .seccion-countdown { padding: 20px 10px; }
+    .countdown-container {
+        width: 220px;
+        height: 220px;
+    }
+    .countdown-container::before {
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+    }
+    .countdown-timer { gap: 8px; }
+    .time-block .number { font-size: 1.8em; }
+    .time-block .label { font-size: 0.65em; }
+    .time-separator { height: 18px; }
+    .countdown-title-text { font-size: 1.3em; }
+    .heart-icon { width: 20px; }
+
+
+    /* Detalles */
+    .seccion-detalles { padding: 40px 15px; }
+    .evento {
+        padding: 20px;
+    }
+    .seccion-detalles h2 { font-size: 2em; }
+    .detalle p { font-size: 0.95em; }
+    .boton-accion, .boton-asistencia, .boton-ubicacion, .boton-waze {
+        padding: 10px 20px;
+        font-size: 0.85em;
+    }
+
+    /* Galería */
+    .seccion-galeria { padding: 30px 10px; }
+    .galeria-title { font-size: 1.8em; }
+    .slider-container { max-width: 100%; height: 720px; padding: 10px; } /* AUMENTADO: Ajuste para móviles */
+    .camara-icon { width: 30px; }
+    .music-note-icon { font-size: 1.4em; }
+    .slider-dots { margin-top: 15px; }
+    .dot { width: 10px; height: 10px; }
+}
